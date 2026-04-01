@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+  --ink: #1c1008;
+  --deep-brown: #2d1810;
+  --mud: #8b7355;
+  --sand: #d4c5b0;
+  --cream: #f8f4f0;
+  --gold: #d4af37;
+  --ochre: #c4742a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Crimson Pro', serif;
+  background: var(--cream);
+  color: var(--deep-brown);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+button { font-family: 'Crimson Pro', serif; cursor: pointer; }
+input, textarea, select { font-family: 'Crimson Pro', serif; }
+a { text-decoration: none; }
