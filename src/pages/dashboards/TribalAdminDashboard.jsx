@@ -35,7 +35,7 @@ export default function TribalAdminDashboard() {
       setFeatured(arts.slice(0, 3));
     }).catch(() => showToast('Error loading dashboard', 'error'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [showToast]);
 
   const approveArtisan = async (id) => {
     try { await api.approveArtisan(id); setPending(p => ({ ...p, artisans: p.artisans.filter(a => a.id !== id) })); showToast('Artisan approved!'); }

@@ -16,7 +16,7 @@ export default function HeritageDashboard() {
       .then(([q, a]) => { setQueue(q); setArchive(a); })
       .catch(() => showToast('Error loading heritage data', 'error'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [showToast]);
 
   const handleSaveStory = async (e) => {
     e.preventDefault();
