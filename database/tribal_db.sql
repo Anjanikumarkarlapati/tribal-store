@@ -1,9 +1,6 @@
 -- Tribal MySQL Database Schema
--- Run this file in MySQL Workbench to set up the database
+-- Run this file to set up the database schema and seed data
 
-DROP DATABASE IF EXISTS tribal_db;
-CREATE DATABASE tribal_db;
-USE tribal_db;
 
 -- Users table
 CREATE TABLE users (

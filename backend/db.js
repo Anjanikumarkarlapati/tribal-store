@@ -6,6 +6,7 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD || '12345',
   database: process.env.DB_NAME || 'tribal_db',
   port: process.env.DB_PORT || 3306,
+  ssl: { rejectUnauthorized: false },
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
