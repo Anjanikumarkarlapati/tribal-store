@@ -1,41 +1,23 @@
+require('dotenv').config();
 const mysql = require('mysql2/promise');
 const fs = require('fs');
 const path = require('path');
 
 async function setup() {
-  console.log("Attempting to connect to MySQL server...");
+  console.log(`Attempting to connect to MySQL server at ${process.env.DB_HOST || 'localhost'}...`);
   let connection;
   try {
-    // Try the default password from db.js
     connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
+      host: process.env.DB_HOST || 'localhost',
+      port: process.env.DB_PORT || 3306,
+      user: process.env.DB_USER || 'root',
       password: process.env.DB_PASSWORD || '12345',
       multipleStatements: true
     });
-    console.log("Connected using password '12345'");
+    console.log("Connected successfully!");
   } catch (err) {
-    if (err.code === 'ER_ACCESS_DENIED_ERROR') {
-      console.log("Access denied with password '12345', trying with a blank password (default for XAMPP)...");
-      try {
-        connection = await mysql.createConnection({
-          host: 'localhost',
-          user: 'root',
-          password: '',
-          multipleStatements: true
-        });
-        console.log("Connected using blank password!");
-        // Update the .env or backend code so that db.js knows to use blank password too if needed?
-        // the db.js defaults to '12345', if it fails to login later, we will have to fix that too.
-      } catch (err2) {
-        console.error("Could not connect to MySQL server with '12345' or blank password. Is MySQL currently running?");
-        console.error(err2.message);
-        process.exit(1);
-      }
-    } else {
-      console.error("Connection failed:", err.message);
-      process.exit(1);
-    }
+    console.error("Connection failed:", err.message);
+    process.exit(1);
   }
 
   try {

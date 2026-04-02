@@ -1,5 +1,5 @@
-// Update with your actual Render backend URL once deployed, or set it in Netlify environment variables as REACT_APP_API_URL.
-const BASE_URL = process.env.REACT_APP_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://YOUR_RENDER_URL.onrender.com/api');
+// Update with your actual Render backend URL once deployed, or set it in environment variables as REACT_APP_API_URL.
+const BASE_URL = process.env.REACT_APP_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://tribal-store-1.onrender.com/api');
 
 function authHeaders() {
   const token = localStorage.getItem('tribal_token');
